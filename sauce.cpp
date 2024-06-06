@@ -47,10 +47,10 @@ void SendKeyPress(WORD key, int duration = 200) {
     INPUT ip = { 0 };
     ip.type = INPUT_KEYBOARD;
     ip.ki.wVk = key;
-    ip.ki.dwFlags = 0; // key down
+    
+    ip.ki.dwFlags = 0;  // key down
     SendInput(1, &ip, sizeof(INPUT));
-    Sleep(duration); // Press duration
-
+    Sleep(duration);
     ip.ki.dwFlags = KEYEVENTF_KEYUP; // key up
     SendInput(1, &ip, sizeof(INPUT));
 }
